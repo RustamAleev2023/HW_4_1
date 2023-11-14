@@ -9,30 +9,12 @@ public class Main {
     public static void main(String[] args) {
 //        task1();
 //        task2();
-//        task3();
-
-//        int i = 153;
-//            //разбиваем число на разряды
-//            int[] digits = new int[String.valueOf(i).length()];
-//            int n = i;
-//            for (int j = 0; j < digits.length; j++) {
-//                digits[j] = n % 10;
-//                n = n / 10;
-//                System.out.println(digits[j]);
-//            }
-//            int[] result = new int[digits.length];
-//        System.out.println(result.length);
-//            for (int j = 0; j < result.length; j++) {
-//
-//                result[j] = (int) Math.pow(digits[j],1/digits.length);
-//                System.out.println(result[j]);
-//            }
+        task3();
 
 
     }
 
     //Task1
-    //Fibonacci numbers
     public static void task1() {
 
         int maxLimit = 10_000_000;
@@ -40,7 +22,7 @@ public class Main {
         int b = 1;
         int c;
 
-        while (a <= maxLimit){
+        while (a <= maxLimit) {
             System.out.println(a);
             c = a + b;
             a = b;
@@ -76,6 +58,7 @@ public class Main {
 
 
         for (int i = min; i <= max; i++) {
+            int sum = 0;
             //разбиваем число на разряды
             int[] digits = new int[String.valueOf(i).length()];
             int n = i;
@@ -83,12 +66,18 @@ public class Main {
                 digits[j] = n % 10;
                 n = n / 10;
             }
-            int[] result = new int[digits.length];
-            for (int j = 0; j < result.length; j++) {
-                result[j] = (int) Math.pow(digits[j], (1 / digits.length));
+
+            double pow = digits.length;
+
+            for (int j = 0; j < digits.length; j++) {
+                int temp = (int) Math.round(Math.pow(digits[j], pow));
+                sum += temp;
+            }
+
+            if (sum == i) {
+                System.out.println(i);
             }
         }
-
 
     }
 }
