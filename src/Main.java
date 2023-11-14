@@ -1,16 +1,13 @@
-import java.math.BigInteger;
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Scanner;
 
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
 public class Main {
     public static void main(String[] args) {
+
 //        task1();
 //        task2();
-        task3();
-
+//        task3();
+//        task4();
+        task5();
 
     }
 
@@ -60,12 +57,8 @@ public class Main {
         for (int i = min; i <= max; i++) {
             int sum = 0;
             //разбиваем число на разряды
-            int[] digits = new int[String.valueOf(i).length()];
-            int n = i;
-            for (int j = 0; j < digits.length; j++) {
-                digits[j] = n % 10;
-                n = n / 10;
-            }
+
+            int[] digits = digits(i);
 
             double pow = digits.length;
 
@@ -78,6 +71,69 @@ public class Main {
                 System.out.println(i);
             }
         }
-
     }
+
+    public static int[] digits(int i){
+        int[] digits = new int[String.valueOf(i).length()];
+        int n = i;
+        for (int j = 0; j < digits.length; j++) {
+            digits[j] = n % 10;
+            n = n / 10;
+        }
+
+        return digits;
+    }
+
+    //Task4
+    public static void task4(){
+        int min = 10;
+        int max = 1_000_00;
+
+        for (int num = min; num <= max ; num++) {
+            if(isPerfect(num)){
+                System.out.println(num);
+            }
+
+        }
+    }
+    public static boolean isPerfect(int num){
+        int sum = 0;
+        for (int i = 1; i <= num/2; i++) {
+            if(num % i == 0){
+                sum += i;
+            }
+        }
+
+        if(sum == num){
+           return  true;
+        } else {
+            return false;
+        }
+    }
+
+    //Task5
+    public static void task5(){
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите число.\n" +
+                "Мы будем проверять - является ли оно палиндромом?\n" +
+                "Введенное число должно состоять из четного колличества цифр");
+
+        String string = scanner.next();
+
+        if(string.length() % 2 != 0){
+            System.out.println("Вы ввели неверное число");
+        } else {
+            int mid = string.length()/2;
+            String str1 = string.substring(0,mid);
+            String str2 = string.substring(mid);
+
+            if(str1.contentEquals(new StringBuilder(str2).reverse())){
+                System.out.println("YES");
+            } else {
+                System.out.println("NO");
+            }
+        }
+    }
+
+
 }
