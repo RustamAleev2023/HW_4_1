@@ -1,3 +1,4 @@
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class Main {
@@ -7,7 +8,9 @@ public class Main {
 //        task2();
 //        task3();
 //        task4();
-        task5();
+//        task5();
+          task6();
+
 
     }
 
@@ -133,6 +136,33 @@ public class Main {
                 System.out.println("NO");
             }
         }
+    }
+
+    //Task6
+    public static void task6(){
+        int count = 0;
+
+        for (int i = 10000000; i < 100000000; i++) {
+            if(numberHasSameDigit(i)){
+                if(i % 12345 == 0){
+                    System.out.println(i);
+                    count++;
+                }
+            }
+        }
+        System.out.println(count);
+    }
+    public static boolean numberHasSameDigit(int number){
+        boolean result = true;
+        int[] digits = digits(number);
+        for (int j = 0; j < digits.length; j++) {
+            for (int k = j + 1; k < digits.length; k++) {
+                if(digits[j] == digits[k]){
+                    result = false;
+                }
+            }
+        }
+        return result;
     }
 
 
