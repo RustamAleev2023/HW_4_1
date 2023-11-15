@@ -11,7 +11,8 @@ public class Main {
 //        task5();
 //          task6();
 //          task7();
-          task8();
+//          task8();
+        task9();
 
 
     }
@@ -81,7 +82,7 @@ public class Main {
         }
     }
 
-    public static int[] digits(int i){
+    public static int[] digits(int i) {
         int[] digits = new int[String.valueOf(i).length()];
         int n = i;
         for (int j = 0; j < digits.length; j++) {
@@ -94,27 +95,28 @@ public class Main {
 
     //Task4
     //Perfect number
-    public static void task4(){
+    public static void task4() {
         int min = 10;
         int max = 1_000_00;
 
-        for (int num = min; num <= max ; num++) {
-            if(isPerfect(num)){
+        for (int num = min; num <= max; num++) {
+            if (isPerfect(num)) {
                 System.out.println(num);
             }
 
         }
     }
-    public static boolean isPerfect(int num){
+
+    public static boolean isPerfect(int num) {
         int sum = 0;
-        for (int i = 1; i <= num/2; i++) {
-            if(num % i == 0){
+        for (int i = 1; i <= num / 2; i++) {
+            if (num % i == 0) {
                 sum += i;
             }
         }
 
-        if(sum == num){
-           return  true;
+        if (sum == num) {
+            return true;
         } else {
             return false;
         }
@@ -122,7 +124,7 @@ public class Main {
 
     //Task5
     //Palindrome
-    public static void task5(){
+    public static void task5() {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите число.\n" +
                 "Мы будем проверять - является ли оно палиндромом?\n" +
@@ -130,14 +132,14 @@ public class Main {
 
         String string = scanner.next();
 
-        if(string.length() % 2 != 0){
+        if (string.length() % 2 != 0) {
             System.out.println("Вы ввели неверное число");
         } else {
-            int mid = string.length()/2;
-            String str1 = string.substring(0,mid);
+            int mid = string.length() / 2;
+            String str1 = string.substring(0, mid);
             String str2 = string.substring(mid);
 
-            if(str1.contentEquals(new StringBuilder(str2).reverse())){
+            if (str1.contentEquals(new StringBuilder(str2).reverse())) {
                 System.out.println("YES");
             } else {
                 System.out.println("NO");
@@ -147,12 +149,12 @@ public class Main {
 
     //Task6
     //Counter eight digit's numbers consist of different digits
-    public static void task6(){
+    public static void task6() {
         int count = 0;
 
         for (int i = 10000000; i < 100000000; i++) {
-            if(numberHasSameDigit(i)){
-                if(i % 12345 == 0){
+            if (numberHasSameDigit(i)) {
+                if (i % 12345 == 0) {
                     System.out.println(i);
                     count++;
                 }
@@ -160,12 +162,13 @@ public class Main {
         }
         System.out.println(count);
     }
-    public static boolean numberHasSameDigit(int number){
+
+    public static boolean numberHasSameDigit(int number) {
         boolean result = true;
         int[] digits = digits(number);
         for (int j = 0; j < digits.length; j++) {
             for (int k = j + 1; k < digits.length; k++) {
-                if(digits[j] == digits[k]){
+                if (digits[j] == digits[k]) {
                     result = false;
                 }
             }
@@ -175,7 +178,7 @@ public class Main {
 
     //Task7
     //int to binary
-    public static void task7(){
+    public static void task7() {
 
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите int ");
@@ -184,21 +187,21 @@ public class Main {
         int[] binary = new int[32];
         int i = 0;
 
-        while (number != 0){
+        while (number != 0) {
             binary[i] = number % 2;
             number = number / 2;
             i++;
         }
 
-        System.out.print("Двоичное представление числа : " );
-        for (int j = i - 1; j >= 0 ; j--) {
+        System.out.print("Двоичное представление числа : ");
+        for (int j = i - 1; j >= 0; j--) {
             System.out.print("" + binary[j]);
         }
     }
 
     //Task8
-
-    public static void task8(){
+    //Count symmetric combinations of hours and minutes in electronic watch
+    public static void task8() {
 
         int counter = 0;
         int x;
@@ -210,7 +213,7 @@ public class Main {
             y = i % 10;
 
             //отсекаем лишние минуты
-            if(y > 5){
+            if (y > 5) {
                 continue;
             }
             //[10*x]+[y]:[10*y][x]
@@ -220,8 +223,22 @@ public class Main {
             counter++;
         }
         System.out.println("Колличество симметричных комбинаций = " + counter);
-
     }
 
+    //Task9
+    //Sum of numbers are multiplier of 3 or 5
+    public static void task9() {
+        int min = 0;
+        int max = 1000;
+        int sum = 0;
+
+        for (int i = min; i < max; i++) {
+            if ((i % 3 == 0 || i % 5 == 0) && i != 0) {
+                sum += i;
+            }
+        }
+        System.out.println(sum);
+
+    }
 
 }
