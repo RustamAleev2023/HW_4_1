@@ -9,12 +9,14 @@ public class Main {
 //        task3();
 //        task4();
 //        task5();
-          task6();
+//          task6();
+          task7();
 
 
     }
 
     //Task1
+    //Fibonacci numbers
     public static void task1() {
 
         int maxLimit = 10_000_000;
@@ -31,6 +33,7 @@ public class Main {
     }
 
     //Task2
+    //Prime number
     public static void task2() {
         int n = 1_000_000;
 
@@ -52,6 +55,7 @@ public class Main {
     }
 
     //Task3
+    //Armstrong number
     public static void task3() {
         int min = 10;
         int max = 1_000_000;
@@ -88,6 +92,7 @@ public class Main {
     }
 
     //Task4
+    //Perfect number
     public static void task4(){
         int min = 10;
         int max = 1_000_00;
@@ -115,6 +120,7 @@ public class Main {
     }
 
     //Task5
+    //Palindrome
     public static void task5(){
         Scanner scanner = new Scanner(System.in);
         System.out.println("Введите число.\n" +
@@ -139,6 +145,7 @@ public class Main {
     }
 
     //Task6
+    //Counter eight digit's numbers consist of different digits
     public static void task6(){
         int count = 0;
 
@@ -163,6 +170,30 @@ public class Main {
             }
         }
         return result;
+    }
+
+    //Task7
+    //int to binary
+    public static void task7(){
+
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите int ");
+
+        int number = scanner.nextInt();
+        int[] binary = new int[32];
+        int i = 0;
+
+        while (number != 0){
+            binary[i] = number % 2;
+            number = number / 2;
+            i++;
+        }
+
+        System.out.print("Двоичное представление числа : " );
+        for (int j = i - 1; j >= 0 ; j--) {
+            System.out.print("" + binary[j]);
+        }
+
     }
 
 
