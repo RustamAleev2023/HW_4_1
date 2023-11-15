@@ -10,7 +10,8 @@ public class Main {
 //        task4();
 //        task5();
 //          task6();
-          task7();
+//          task7();
+          task8();
 
 
     }
@@ -193,6 +194,32 @@ public class Main {
         for (int j = i - 1; j >= 0 ; j--) {
             System.out.print("" + binary[j]);
         }
+    }
+
+    //Task8
+
+    public static void task8(){
+
+        int counter = 0;
+        int x;
+        int y;
+
+        StringBuilder stringBuilder = new StringBuilder(5);
+        for (int i = 0; i < 24; i++) {
+            x = i / 10;
+            y = i % 10;
+
+            //отсекаем лишние минуты
+            if(y > 5){
+                continue;
+            }
+            //[10*x]+[y]:[10*y][x]
+            stringBuilder.append(x).append(y).append(":").append(y).append(x);
+            System.out.println(stringBuilder);
+            stringBuilder.setLength(0);
+            counter++;
+        }
+        System.out.println("Колличество симметричных комбинаций = " + counter);
 
     }
 
