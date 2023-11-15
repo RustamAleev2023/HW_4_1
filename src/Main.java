@@ -13,7 +13,8 @@ public class Main {
 //          task7();
 //          task8();
 //        task9();
-        task10();
+//        task10();
+        task11();
 
 
     }
@@ -257,7 +258,28 @@ public class Main {
                 i++;
             }
         }
+    }
 
+    //Task11
+    //fizz-buzz-hiss
+    public static void task11(){
+        String multiplier3 = "fizz";
+        String multiplier5 = "buzz";
+        String multiplier15 = "hiss";
+        int min = 1;
+        int max = 100;
+
+        for (int i = min; i < max; i++) {
+            if(i % 3 == 0 && !(i%5==0)){
+                System.out.println(multiplier3);
+            } else if (i % 5 == 0 && !(i % 3 == 0)){
+                System.out.println(multiplier5);
+            } else if(i % 15 == 0){
+                System.out.println(multiplier15);
+            } else {
+                System.out.println(i);
+            }
+        }
     }
 
 }
