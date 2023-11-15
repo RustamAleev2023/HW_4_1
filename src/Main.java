@@ -14,7 +14,8 @@ public class Main {
 //          task8();
 //        task9();
 //        task10();
-        task11();
+//        task11();
+        task12();
 
 
     }
@@ -247,11 +248,11 @@ public class Main {
     public static void task10() {
         int i = 1;
         boolean isActive = true;
-        while (isActive){
+        while (isActive) {
             if (i % 1 == 0 && i % 2 == 0 && i % 3 == 0 && i % 4 == 0 && i % 5 == 0
                     && i % 6 == 0 && i % 7 == 0 && i % 8 == 0 && i % 9 == 0 && i % 10 == 0
                     && i % 11 == 0 && i % 12 == 0 && i % 13 == 0 && i % 14 == 0 && i % 15 == 0
-                    && i % 16 == 0 && i % 17 == 0 && i % 18 == 0 && i % 19 == 0 && i % 20 == 0){
+                    && i % 16 == 0 && i % 17 == 0 && i % 18 == 0 && i % 19 == 0 && i % 20 == 0) {
                 System.out.println(i);
                 isActive = false;
             } else {
@@ -262,7 +263,7 @@ public class Main {
 
     //Task11
     //fizz-buzz-hiss
-    public static void task11(){
+    public static void task11() {
         String multiplier3 = "fizz";
         String multiplier5 = "buzz";
         String multiplier15 = "hiss";
@@ -270,11 +271,11 @@ public class Main {
         int max = 100;
 
         for (int i = min; i < max; i++) {
-            if(i % 3 == 0 && !(i%5==0)){
+            if (i % 3 == 0 && !(i % 5 == 0)) {
                 System.out.println(multiplier3);
-            } else if (i % 5 == 0 && !(i % 3 == 0)){
+            } else if (i % 5 == 0 && !(i % 3 == 0)) {
                 System.out.println(multiplier5);
-            } else if(i % 15 == 0){
+            } else if (i % 15 == 0) {
                 System.out.println(multiplier15);
             } else {
                 System.out.println(i);
@@ -282,4 +283,21 @@ public class Main {
         }
     }
 
+    //Task12
+    public static void task12() {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Введите расстояние, которое спортсмен пробежал в первый день");
+        double x = scanner.nextDouble();
+        System.out.println("Введите расстояние, которое спортсмену нужно пробежать");
+        double y = scanner.nextDouble();
+        int counter = 1;
+
+        while (x <= y) {
+            x *= 1.1;
+            counter++;
+        }
+        System.out.println("Спортсмен пробежит " + (int) y + " на " + counter + " день.");
+
+
+    }
 }
